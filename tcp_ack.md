@@ -56,3 +56,8 @@ This two-byte option may be sent in a SYN by a TCP that has been
 
 rfc 协议链接地址
 https://www.rfc-editor.org/rfc/rfc2018
+
+## dup ack
+
+从字面意思理解看起来是 重复的ACK ，但他其实不是为了因为同一个序列号包重复到达引起的，他是因为多次多次收到包，但每次都不是预期的 n + 1 的
+包，从而会触发发送 n 序列号的 ack 包。提醒发送者赶紧发送后续的包。出现这种情况一般是因为数据包乱序造成。数据包队列有一些空洞。
